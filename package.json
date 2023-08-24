@@ -19,5 +19,8 @@
   "homepage": "https://github.com/FirstIntegral/web-crawler#readme",
   "devDependencies": {
     "jest": "^29.6.3"
+  },
+  "dependencies": {
+    "jsdom": "^22.1.0"
   }
 }
