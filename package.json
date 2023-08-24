@@ -1,0 +1,23 @@
+{
+  "name": "web-crawler",
+  "version": "1.0.0",
+  "description": "A simple web crawling tool for any SEO enuthsiast as part of a guided project on boot.dev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FirstIntegral/web-crawler.git"
+  },
+  "author": "brwsk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FirstIntegral/web-crawler/issues"
+  },
+  "homepage": "https://github.com/FirstIntegral/web-crawler#readme",
+  "devDependencies": {
+    "jest": "^29.6.3"
+  }
+}
