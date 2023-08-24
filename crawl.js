@@ -1,5 +1,28 @@
 const { JSDOM } = require('jsdom')
 
+async function crawlPage(currentURL) {
+    console.log(`actively crawling: ${currentURL}`)
+
+    try {
+        const response = await fetch(currentURL)
+        if (response.status > 399) {
+            console.log(`error in fetch with status code: ${response.status} on page: ${currentURL}`)
+            return
+        }
+
+        // After getting a response back, need to check if it's actually html before going any further 
+        const content = response.headers.get("content-type")
+        if (!content.includes("text/html")) {
+            console.log(`non html response, content type: ${content}, on page: ${currentURL}`)
+            return
+        }
+
+        console.log(await response.text())
+    } catch (err) {
+        console.log(`error in fetch: ${err.message}, on page: ${currentURL}`)
+    }
+}
+
 function getURLsFromHTML(htmlBody, baseURL) {
     const urls = []
     // Creating an html document object model. An in-memory object that represents that tree structure
@@ -45,5 +68,6 @@ function normalizeURL(url) {
 
 module.exports = {
     normalizeURL,
-    getURLsFromHTML
+    getURLsFromHTML,
+    crawlPage
 }
